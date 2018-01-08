@@ -1,5 +1,5 @@
 body {
-    height: 10000px;
+    
 }
 
 #logo {
@@ -14,10 +14,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2000;
+    z-index: 50000;
     box-shadow: inset 0 1px #fff, 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: inset 0 1px #fff, 0 1px 3px rgba(34,25,25,0.4);
     -webkit-box-shadow: inset 0 1px #fff, 0 1px 3px rgba(34,25,25,0.4);          
+    background-color: #fff;
 }
 
 .navbar-section a, .btn.btn-link {
@@ -26,3 +27,92 @@ body {
     font-weight: bold;
 }
 
+.hero {
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    text-align: center;
+    background-image: url('../images/PC.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 74px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    color: #fff;
+    /* position: absolute; */
+    text-align: center;
+    width: 100%; 
+    font-family: 'Titillium Web', sans-serif;
+    /* text-shadow: 3px 3px #5755d9; */
+    font-size: 8vh; 
+    font-weight: bold;
+}
+
+#optic-logo {
+    width: 60%;
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.optic-text {
+    padding: 50px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.content {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.content-align {
+    display: flex;
+    align-content: center;
+}
+
+.columns {
+    display: flex;
+    align-items: center;
+}
+
+.figure {
+    width: auto;
+    margin: 0 auto;
+}
+
+#vid {
+    padding: 150px;
+    background-image: url(../images/switch.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: center;    
+}
+
+#vid h1 {
+    
+}
+ 
+#standings {
+    padding: 50px;
+}
+
+#standings h1 {
+    text-align: center;
+    color: #5755d9;
+}
+
+footer {
+    background-color: #403ea2;
+    color: #fff;
+}
