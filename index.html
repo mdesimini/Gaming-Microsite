@@ -8,7 +8,7 @@
     <title>Matt Desimini Microsite</title>
     <meta name="description" content="Matt Desimini's Microsite for the Jr. Web Developer Position at Octagon.">
     <meta name="author" content="Matt Desimini">
-
+    <link rel="icon" href="images/md-icon.gif" type="image/gif" sizes="16x16">
     <!-- Fonts from Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
@@ -30,14 +30,21 @@
       <section class="navbar-section">
         <a href="#" id="scrollToNews" class="btn btn-link hide-xs">News</a>
         <a href="#" id="scrollToEsports" class="btn btn-link hide-xs">eSports</a>
-        <a href="#" class="btn btn-link hide-xs">Contact Us</a>
+        <a href="#" id="contact" class="btn btn-link hide-xs">Contact Us</a>
         <button class="hamburger hamburger--collapse show-xs" type="button">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
         </button>            
       </section>
-    </header>    
+    </header>
+        <div id="mobile-nav" class="mobile-nav-container">
+            <nav>
+                <a href="#" id="scrollToNewsMobile">News</a>                     
+                <a href="#" id="scrollToEsportsMobile">eSports</a> 
+                <a href="#">Contact Us</a> 
+            </nav>        
+        </div>        
     </div>
     
     <div class="hero">
@@ -45,7 +52,7 @@
     </div>
     
     <div class="content container" id="news">
-      <div class="columns">
+      <div class="columns columns-flex">
         <div class="column col-6 col-md-12 content-align">
             <div class="container optic-text">
                 <h1 style="vertical-align: middle;">Id Volutpat Semper</h1>
@@ -62,7 +69,7 @@
     </div>
     
     <div class="container" id="vid">
-        <div class="columns">
+        <div class="columns columns-flex">
             <div class="column col-6 col-md-12">
                 <div class="video-responsive">
                   <iframe src="https://www.youtube.com/embed/2foxOCr3A3E" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
@@ -76,8 +83,8 @@
     </div>
     
     <div class="container">
-        <div class="columns" id="standings">
-            <div class="column col-4 col-mx-auto">
+        <div class="columns columns-flex" id="standings">
+            <div class="column col-6 col-mx-auto col-md-12 col-xs-12">
             <h1>Standings</h1>
                 <table class="table table-striped table-hover">
                   <thead>
@@ -116,13 +123,22 @@
     
     <footer class="container">
       <div class="columns">
-        <div class="column col-6"></div>
-        <div class="column col-3"></div>
-        <div class="column col-3"></div>
+        <div class="column col-6 col-xs-12">
+            <img id="small-logo" width="100" src="images/logo-small.png" alt="small-logo">
+        </div>
+        <div class="column col-6 col-xs-12">
+          <ul>
+            <li><a href="#" id="scrollToNews2">News</a></li>  
+            <li><a href="#" id="scrollToEsports2">eSports</a></li>  
+            <li><a href="#">Contact</a></li>  
+          </ul>
+        </div>
       </div>    
+        <hr/>
     </footer>
     
     <script src="js/scrollTo.js"></script>
+    <script src="js/mobile-menu.js"></script>
 </body>
 
 </html>

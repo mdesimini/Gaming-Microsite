@@ -27,6 +27,10 @@ body {
     font-weight: bold;
 }
 
+.mobile-nav-container {
+    display: none;
+}
+
 .hero {
     width: 100%;
     height: 550px;
@@ -78,7 +82,7 @@ body {
     align-content: center;
 }
 
-.columns {
+.columns-flex {
     display: flex;
     align-items: center;
 }
@@ -112,7 +116,78 @@ body {
     color: #5755d9;
 }
 
+#small-logo {
+    
+}
+
 footer {
     background-color: #403ea2;
     color: #fff;
+    padding: 5%;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+
+}
+
+footer ul li a {
+    color: #fff;
+}
+
+footer ul li a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+@media screen and (max-width: 840px) {
+        
+    #vid {
+        padding: 75px;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    
+    #vid {
+        padding: 20px;
+    }
+    
+    #news {
+        padding: 10px;
+    }
+    
+    .hero h1 {
+        font-size: 6vh;
+    }
+    
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        margin: 0 auto;
+        position: fixed; 
+        top: 78px;
+        left: 0;
+        z-index: 2000;
+        background-color: #fff;
+        color: #122760;
+        text-decoration:none;
+        border-bottom: 1px solid #cecece;
+    }
+    
+    .mobile-nav-container nav {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .mobile-nav-container nav a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }       
+    
 }
