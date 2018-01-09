@@ -22,6 +22,105 @@
 </head>
 
 <body>
+    
+    <?php
+    
+    $firstname = $lastname = $email = $zipcode = $state = "";
+    $firstnameErr = $lastnameErr = $emailErr = $zipcodeErr = $stateErr = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      if (empty($_POST["firstname"])) {
+        $firstnameErr = "First Name is required";
+      } else {
+        $firstname = validate_form($_POST["firstname"]);
+
+        if (!preg_match("/[a-zA-Z]+/",$firstname)) {
+          $firstnameErr = "Characters Only"; 
+        }
+      }
+
+      if (empty($_POST["lastname"])) {
+        $lastnameErr = "Last Name is required";
+      } else {
+        $lastname = validate_form($_POST["lastname"]);
+
+        if (!preg_match("/[a-zA-Z-']+/",$lastname)) {
+          $lastnameErr = "Characters, Hyphens, Apostrophes only"; 
+        }
+      }    
+
+      if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = validate_form($_POST["email"]);
+        
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format"; 
+        }
+      }
+
+      if (empty($_POST["zipcode"])) {
+        $zipcodeErr = "Zip Code is required";
+      } else {
+        $zipcode = validate_form($_POST["zipcode"]);
+
+        if (!preg_match("/[0-9]{5}/",$zipcode)) {
+          $zipcodeErr = "5 numbers"; 
+        }
+      }    
+
+      if (empty($_POST["state"])) {
+        $stateErr = "State is required";
+      } else {
+        $state = validate_form($_POST["state"]);
+
+        if (!preg_match("/[a-zA-Z]{2}+/",$state)) {
+          $stateErr = "Select a valid state"; 
+        }
+      }        
+
+    }
+
+    function validate_form($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+    
+    if($firstnameErr == "" && $lastnameErr == "" && $emailErr == "" && $zipcodeErr == "" && $stateErr == "") {
+        
+        if(isset($_POST['submit'])) {
+        
+        include('../include/db.php');  
+        
+        $statement = $link->prepare("INSERT INTO contact_form(firstname, lastname, email, zipcode, state)
+            VALUES(:fname, :lname, :email, :zip, :state)");
+        $statement->execute(array(
+            "fname" => "$firstname",
+            "lname" => "$lastname",
+            "email" => "$email",
+            "zip" => "$zipcode",
+            "state" => "$state"
+        ));      
+            
+        header('Location: index.php?status=1');
+        exit;            
+        
+        }
+    }
+    
+    else {
+        
+        header('Location: index.php?status=0');
+        exit;
+        
+    }
+
+    ?>    
+    
+        
     <div class="container">
     <header class="navbar">
       <section class="navbar-section">
@@ -50,14 +149,25 @@
     <div class="contact">
         <div class="columns">
                   <div class="column column col-6 col-mx-auto col-md-12 col-xs-12">
+                    <?php                    
+                         if(isset($_GET['status'])){
+                             $status = $_GET['status'];
+                             if($status == 1){
+                                echo "<h4 style='color:green; text-align: center;'>Success!</h4>";
+                             }else if($status == 0){
+                                echo "<h4 style='color:red; text-align: center;'>Unable to send message</h4>";
+                             }
+                         }                          
+                    ?>
                     <h1>Contact Us</h1>
-                    <form class="form-horizontal" action="#forms">
+                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                       <div class="form-group">
                         <div class="col-3">
                           <label class="form-label" for="firstname">First Name</label>
                         </div>
                         <div class="col-9">
-                          <input class="form-input" type="text" id="firstname" name="firstname" pattern="[a-zA-Z0-9]+" placeholder="First Name" required>
+                          <input class="form-input" type="text" id="firstname" name="firstname" pattern="[a-zA-Z]+" placeholder="First Name" required>
+                          <span class="error"><?php echo $firstnameErr;?></span>
                         </div>
                       </div>
                       <div class="form-group">
@@ -65,7 +175,8 @@
                           <label class="form-label" for="lastname">Last Name</label>
                         </div>
                         <div class="col-9">
-                          <input class="form-input" type="text" id="lastname" name="lastname" pattern="[a-zA-Z0-9-']+" placeholder="Last Name" required>
+                          <input class="form-input" type="text" id="lastname" name="lastname" pattern="[a-zA-Z-']+" placeholder="Last Name" required>
+                          <span class="error"><?php echo $lastnameErr;?></span>
                         </div>
                       </div>                        
                       <div class="form-group">
@@ -74,6 +185,7 @@
                         </div>
                         <div class="col-9">
                           <input class="form-input" type="email" id="email" name="email" placeholder="Email" required>
+                          <span class="error"><?php echo $emailErr;?></span>
                         </div>
                       </div>
                       <div class="form-group">
@@ -81,7 +193,8 @@
                           <label class="form-label" for="zipcode">Zip Code</label>
                         </div>
                         <div class="col-2 col-xl-4">
-                          <input class="form-input" type="text" pattern="[0-9]{5}" id="zipcode" name="zipcode" placeholder="Zip Code" minlength="5" maxlength="5" required>
+                          <input class="form-input" type="text" id="zipcode" pattern="[0-9]{5}" minlength="5" maxlength="5" name="zipcode" placeholder="Zip Code" required>
+                          <span class="error"><?php echo $zipcodeErr;?></span>
                         </div>
                         <div class="col-7 col-xl-5"></div>                          
                       </div>                        
@@ -144,17 +257,67 @@
                               <option value="WV">WV</option>
                               <option value="WY">WY</option>
                           </select> 
+                          <span class="error"><?php echo $stateErr;?></span>    
                          <div class="col-7 col-xl-5"></div>                                                      
                         </div>  
                       </div>   
                         <div class="form-group">
                             <div class="column col-4 col-mr-auto" style="width: 100%; text-align: center; padding: 10px;">
-                                <button class="btn" type="submit" value="Submit">Submit</button>                          
+                                <button class="btn" name="submit" type="submit" value="Submit">Submit</button>                          
                             </div>
                         </div>                        
                     </form>
                   </div>
         </div>                
+    </div>
+    
+    <div class="container">
+        <div class="columns columns-flex" id="standings">
+            <div class="column col-6 col-mx-auto col-md-12 col-xs-12">
+        <?php
+            
+            include('../include/db.php');
+        
+            $query = "SELECT id, firstname, lastname, email, zipcode, state FROM contact_form";
+
+            $stmt = $link->prepare( $query );
+            $stmt->execute();
+
+            //return $stmt;       
+            
+            echo "<h4 style='text-align:center; margin-top: 20px;' >Database Submissions (Proof)</h4>";
+            echo "<table class='table table-striped table-hover' style='margin-bottom: 20px;'>";
+                echo "<thead>";
+                   echo "<tr>";
+                    echo "<th>ID</th>";
+                    echo "<th>First Name</th>";
+                    echo "<th>Last Name</th>";
+                    echo "<th>Email</th>";
+                    echo "<th>Zip Code</th>";
+                    echo "<th>State</th>";
+                   echo "</tr>";
+                echo "</thead>";
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+                    extract($row);
+
+                    echo "<tr>";
+                        echo "<td>".$row['id']."</td>"; 
+                        echo "<td>".$row['firstname']."</td>";
+                        echo "<td>".$row['lastname']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td>".$row['zipcode']."</td>";
+                        echo "<td>".$row['state']."</td>";
+                    echo "</tr>";
+
+                }
+
+            echo "</table>";        
+        
+        ?>
+            </div>
+        </div>
     </div>
         
     <footer class="container">
