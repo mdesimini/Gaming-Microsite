@@ -1,5 +1,5 @@
 body {
-    
+    font-family: 'Titillium Web', sans-serif;
 }
 
 #logo {
@@ -102,10 +102,6 @@ body {
     display: flex;
     align-items: center;    
 }
-
-#vid h1 {
-    
-}
  
 #standings {
     padding: 50px;
@@ -116,22 +112,15 @@ body {
     color: #5755d9;
 }
 
-#small-logo {
-    
-}
-
 footer {
     background-color: #403ea2;
     color: #fff;
     padding: 5%;
+    text-align: center;
 }
 
 footer ul {
     list-style-type: none;
-}
-
-footer ul li {
-
 }
 
 footer ul li a {
@@ -143,12 +132,88 @@ footer ul li a:hover {
     color: #fff;
 }
 
+.contact {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.contact h1 {
+    text-align: center;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    color: #fff; 
+    background-color: #fff; 
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+@media screen and (min-width: 1920px) {
+    
+    /*
+    #vid {
+        padding: 150px;
+        background-image: url(../images/switch.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        display: flex;
+        align-items: center;    
+    }    
+    */
+    
+    .navbar {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    
+    #vid p {
+        line-height: 2.5;
+    }
+    
+    #news p {
+        line-height: 2.5;
+
+    }
+    
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    
+    #vid {
+        padding-left: 10%;
+        padding-right: 10%;
+    }    
+    
+}
+
+@media screen and (max-width: 1140px) {
+        
+    #vid {
+        padding: 50px;
+    }
+    
+    #news {
+        padding: 20px;
+    }
+    
+    #optic-logo {
+        padding: 0;
+    }
+}
+
+
 @media screen and (max-width: 840px) {
         
     #vid {
         padding: 75px;
     }
     
+
 }
 
 @media screen and (max-width: 480px) {
@@ -163,6 +228,10 @@ footer ul li a:hover {
     
     .hero h1 {
         font-size: 6vh;
+    }
+    
+    #standings {
+        padding: 20px;
     }
     
     #mobile-nav {
@@ -188,6 +257,14 @@ footer ul li a:hover {
         display: block;
         text-align: center;
         padding: 10px;
-    }       
+    }      
+    
+    footer {
+        text-align: center;
+    }
+    
+    .figure {
+        padding-bottom: 30px;
+    }    
     
 }

@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - Matt Desimini Microsite</title>
+    <meta name="description" content="Matt Desimini's Microsite for the Jr. Web Developer Position at Octagon.">
+    <meta name="author" content="Matt Desimini">
+    <link rel="icon" href="../images/md-icon.gif" type="image/gif" sizes="16x16">
+    <!-- Fonts from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+
+    <link rel="stylesheet" href="../css/hamburgers.css">
+    <link rel="stylesheet" href="../css/spectre.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+    <header class="navbar">
+      <section class="navbar-section">
+          <img id="logo" src="../images/logo.png" alt="logo">
+      </section>
+      <section class="navbar-section">
+        <a href="../index.html#news" id="scrollToNews" class="btn btn-link hide-xs">News</a>
+        <a href="../index.html#vid" id="scrollToEsports" class="btn btn-link hide-xs">eSports</a>
+        <a href="../contact/" id="contact" class="btn btn-link hide-xs">Contact Us</a>
+        <button class="hamburger hamburger--collapse show-xs" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>            
+      </section>
+    </header>
+        <div id="mobile-nav" class="mobile-nav-container">
+            <nav>
+                <a href="../index.html#news" id="scrollToNewsMobile">News</a>                     
+                <a href="../index.html#vid" id="scrollToEsportsMobile">eSports</a> 
+                <a href="../contact/">Contact Us</a> 
+            </nav>        
+        </div>        
+    </div>
+    
+    <div class="contact">
+        <div class="columns">
+                  <div class="column column col-6 col-mx-auto col-md-12 col-xs-12">
+                    <h1>Contact Us</h1>
+                    <form class="form-horizontal" action="#forms">
+                      <div class="form-group">
+                        <div class="col-3">
+                          <label class="form-label" for="firstname">First Name</label>
+                        </div>
+                        <div class="col-9">
+                          <input class="form-input" type="text" id="firstname" name="firstname" pattern="[a-zA-Z0-9]+" placeholder="First Name" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-3">
+                          <label class="form-label" for="lastname">Last Name</label>
+                        </div>
+                        <div class="col-9">
+                          <input class="form-input" type="text" id="lastname" name="lastname" pattern="[a-zA-Z0-9-']+" placeholder="Last Name" minlength="2" required>
+                        </div>
+                      </div>                        
+                      <div class="form-group">
+                        <div class="col-3">
+                          <label class="form-label" for="email">Email</label>
+                        </div>
+                        <div class="col-9">
+                          <input class="form-input" type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-3 col-xl-3">
+                          <label class="form-label" for="zipcode">Zip Code</label>
+                        </div>
+                        <div class="col-2 col-xl-4">
+                          <input class="form-input" type="text" pattern="[0-9]{5}" id="zipcode" name="zipcode" placeholder="Zip Code" minlength="5" maxlength="5" required>
+                        </div>
+                        <div class="col-7 col-xl-5"></div>                          
+                      </div>                        
+                      <div class="form-group">
+                        <div class="col-3 col-xl-3">
+                          <label class="form-label" for="state">State</label>
+                        </div>     
+                        <div class="col-2 col-xl-4">
+                          <select id="state" name="state" class="form-select" required>
+                              <option value="">Choose an option</option>
+                              <option value="AK">AK</option>
+                              <option value="AL">AL</option>
+                              <option value="AR">AR</option>
+                              <option value="AZ">AZ</option>
+                              <option value="CA">CA</option>
+                              <option value="CO">CO</option>
+                              <option value="CT">CT</option>
+                              <option value="DC">DC</option>
+                              <option value="DE">DE</option>
+                              <option value="FL">FL</option>
+                              <option value="GA">GA</option>
+                              <option value="HI">HI</option>
+                              <option value="IA">IA</option>
+                              <option value="ID">ID</option>
+                              <option value="IL">IL</option>
+                              <option value="IN">IN</option>
+                              <option value="KS">KS</option>
+                              <option value="KY">KY</option>
+                              <option value="LA">LA</option>
+                              <option value="MA">MA</option>
+                              <option value="MD">MD</option>
+                              <option value="ME">ME</option>
+                              <option value="MI">MI</option>
+                              <option value="MN">MN</option>
+                              <option value="MO">MO</option>
+                              <option value="MS">MS</option>
+                              <option value="MT">MT</option>
+                              <option value="NC">NC</option>
+                              <option value="ND">ND</option>
+                              <option value="NE">NE</option>
+                              <option value="NH">NH</option>
+                              <option value="NJ">NJ</option>
+                              <option value="NM">NM</option>
+                              <option value="NV">NV</option>
+                              <option value="NY">NY</option>
+                              <option value="OH">OH</option>
+                              <option value="OK">OK</option>
+                              <option value="OR">OR</option>
+                              <option value="PA">PA</option>
+                              <option value="RI">RI</option>
+                              <option value="SC">SC</option>
+                              <option value="SD">SD</option>
+                              <option value="TN">TN</option>
+                              <option value="TX">TX</option>
+                              <option value="UT">UT</option>
+                              <option value="VA">VA</option>
+                              <option value="VT">VT</option>
+                              <option value="WA">WA</option>
+                              <option value="WI">WI</option>
+                              <option value="WV">WV</option>
+                              <option value="WY">WY</option>
+                          </select> 
+                         <div class="col-7 col-xl-5"></div>                                                      
+                        </div>  
+                      </div>   
+                        <div class="form-group">
+                            <div class="column col-4 col-mr-auto" style="width: 100%; text-align: center; padding: 10px;">
+                                <button class="btn" type="submit" value="Submit">Submit</button>                          
+                            </div>
+                        </div>                        
+                    </form>
+                  </div>
+        </div>                
+    </div>
+        
+    <footer class="container">
+      <div class="columns">
+        <div class="column col-6 col-xs-12">
+            <img id="small-logo" width="100" src="../images/logo-small.png" alt="small-logo">
+        </div>
+        <div class="column col-6 col-xs-12">
+          <ul>
+            <li><a href="../index.html#news" id="scrollToNews2">News</a></li>  
+            <li><a href="../index.html#vid" id="scrollToEsports2">eSports</a></li>  
+            <li><a href="../contact/">Contact</a></li>  
+          </ul>
+        </div>
+      </div>    
+        <hr/>        
+        <p>Matt Desimini 2018</p>
+    </footer>
+    
+    <script src="../js/scrollTo.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+</body>
+
+</html>
