@@ -1,7 +1,4 @@
-<!doctype html>
-
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,9 +19,7 @@
 </head>
 
 <body>
-    
     <?php
-    
     $firstname = $lastname = $email = $zipcode = $state = "";
     $firstnameErr = $lastnameErr = $emailErr = $zipcodeErr = $stateErr = "";
 
@@ -105,7 +100,8 @@
             "state" => "$state"
         ));      
             
-        header('Location: index.php?status=1');
+        //header('Location: index.php?status=1');
+        echo("<script>location.href = 'index.php?status=1';</script>");            
         exit;            
         
         }
@@ -113,18 +109,16 @@
     
     else {
         
-        header('Location: index.php?status=0');
+        //header('Location: index.php?status=0');
+        echo("<script>location.href = 'index.php?status=0';</script>");            
         exit;
         
     }
-
-    ?>    
-    
-        
+    ?>      
     <div class="container">
     <header class="navbar">
       <section class="navbar-section">
-          <img id="logo" src="../images/logo.png" alt="logo">
+            <a href="../index.html"><img id="logo" src="../images/logo.png" alt="logo"></a>
       </section>
       <section class="navbar-section">
         <a href="../index.html#news" id="scrollToNews" class="btn btn-link hide-xs">News</a>
@@ -149,16 +143,16 @@
     <div class="contact">
         <div class="columns">
                   <div class="column column col-6 col-mx-auto col-md-12 col-xs-12">
-                    <?php                    
+                      <?php
                          if(isset($_GET['status'])){
                              $status = $_GET['status'];
                              if($status == 1){
-                                echo "<h4 style='color:green; text-align: center;'>Success!</h4>";
+                                echo "<h3 style='text-align:center; color: green;'>Success!</h3>";
                              }else if($status == 0){
-                                echo "<h4 style='color:red; text-align: center;'>Unable to send message</h4>";
+                                echo "<h3 style='text-align:center; color: red;'>Unable to send message</h3>";
                              }
-                         }                          
-                    ?>
+                         }                      
+                      ?>
                     <h1>Contact Us</h1>
                     <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                       <div class="form-group">
@@ -204,7 +198,7 @@
                         </div>     
                         <div class="col-2 col-xl-4">
                           <select id="state" name="state" class="form-select" required>
-                              <option value="">Choose an option</option>
+                              <option value="">-</option>
                               <option value="AK">AK</option>
                               <option value="AL">AL</option>
                               <option value="AR">AR</option>
@@ -273,8 +267,8 @@
     
     <div class="container">
         <div class="columns columns-flex" id="standings">
-            <div class="column col-6 col-mx-auto col-md-12 col-xs-12">
-        <?php
+            <div class="column col-4 col-mx-auto col-md-12 col-xs-12 hide-sm">
+            <?php
             
             include('../include/db.php');
         
@@ -285,11 +279,10 @@
 
             //return $stmt;       
             
-            echo "<h4 style='text-align:center; margin-top: 20px;' >Database Submissions (Proof)</h4>";
-            echo "<table class='table table-striped table-hover' style='margin-bottom: 20px;'>";
+            echo "<h4 style='text-align:left; margin-top: 20px;' >Database Submissions (Proof)</h4>";
+            echo "<table class='table table-striped table-hover table-scroll' style='margin-bottom: 20px;'>";
                 echo "<thead>";
                    echo "<tr>";
-                    echo "<th>ID</th>";
                     echo "<th>First Name</th>";
                     echo "<th>Last Name</th>";
                     echo "<th>Email</th>";
@@ -303,7 +296,6 @@
                     extract($row);
 
                     echo "<tr>";
-                        echo "<td>".$row['id']."</td>"; 
                         echo "<td>".$row['firstname']."</td>";
                         echo "<td>".$row['lastname']."</td>";
                         echo "<td>".$row['email']."</td>";
@@ -316,7 +308,7 @@
             echo "</table>";        
         
         ?>
-            </div>
+        </div>
         </div>
     </div>
         
